@@ -16,7 +16,7 @@ struct City {
 struct Road {
     string city1;
     string city2;
-    long long budget;
+    float budget;
 };
 
 vector<City> cities;
@@ -95,15 +95,15 @@ void loadInitialData() {
     cities.push_back({6, "Rubavu"});
     cities.push_back({7, "Rusizi"});
 
-    roads.push_back({"Kigali", "Muhanga", 28600000000});
-    roads.push_back({"Kigali", "Musanze", 28600000000});
-    roads.push_back({"Kigali", "Nyagatare", 70840000000});
-    roads.push_back({"Muhanga", "Huye", 56700000000});
-    roads.push_back({"Musanze", "Rubavu", 33700000000});
-    roads.push_back({"Huye", "Rusizi", 80960000000});
-    roads.push_back({"Muhanga", "Rusizi", 117500000000});
-    roads.push_back({"Musanze", "Nyagatare", 96140000000});
-    roads.push_back({"Muhanga", "Nyagatare", 66300000000});
+    roads.push_back({"Kigali", "Muhanga", 28.6});
+    roads.push_back({"Kigali", "Musanze", 28.6});
+    roads.push_back({"Kigali", "Nyagatare", 70.84});
+    roads.push_back({"Muhanga", "Huye", 56.7});
+    roads.push_back({"Musanze", "Rubavu", 33.7});
+    roads.push_back({"Huye", "Rusizi", 80.96});
+    roads.push_back({"Muhanga", "Rusizi", 117.5});
+    roads.push_back({"Musanze", "Nyagatare", 96.14});
+    roads.push_back({"Muhanga", "Nyagatare", 66.3});
 
     // Update adjacency and budget matrices
     for(const auto& road : roads) {
@@ -412,7 +412,7 @@ void saveToFiles() {
     // Save roads
     ofstream roadFile("roads.txt");
     if(roadFile.is_open()) {
-        roadFile << left << setw(5) << "Nbr" << setw(30) << "Road" << "Budget (RWF)" << endl;
+        roadFile << left << setw(5) << "Nbr" << setw(30) << "Road" << "Budget (Billion RWF)" << endl;
         roadFile << string(60, '-') << endl;
         for(int i = 0; i < roads.size(); i++) {
             roadFile << left << setw(5) << i+1
